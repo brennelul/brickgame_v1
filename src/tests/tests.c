@@ -1,7 +1,7 @@
 #include <check.h>
 #include <stdio.h>
 
-#include "../brick_game/tetris/tetris.h"
+#include "../tetris/tetris.h"
 
 START_TEST(start_test_1) {
   FSM_STATES_g state = START;
