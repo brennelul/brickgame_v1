@@ -11,7 +11,9 @@ Just run `make install` and game will be installed in `./brick_game/`
 
 ### Screenshots
 
-
+![Gameplay](/misc/screenshots/2.png) \
+![Start](/misc/screenshots/1.png) \
+![Game Over](/misc/screenshots/3.png)
 
 ##
 
