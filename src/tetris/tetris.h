@@ -114,6 +114,8 @@ void print_field();
 void print_banner();
 void print_start_banner();
 void print_something(FSM_STATES_g state);
+void clear_field();
+void clear_info();
 
 /**
  * @defgroup move_funcs Tetromino controls

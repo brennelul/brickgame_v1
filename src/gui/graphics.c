@@ -4,7 +4,7 @@
  * @author brennelul
  */
 
-#include "../brick_game/tetris/tetris.h"
+#include "../tetris/tetris.h"
 
 /**
  * @ingroup graphics_funcs
@@ -12,17 +12,18 @@
  * statistics
  */
 void print_game() {
-  clear();
   GameInfo_t *stats = updateCurrentState();
+  clear_info();
   mvprintw(1, 25, "NEXT:");
   mvprintw(8, 25, "SCORE:");
   mvprintw(10, 25, "BEST:");
   mvprintw(12, 25, "LEVEL:");
   mvprintw(14, 25, "SPEED:");
 
+  clear_field();
   print_tetromino();
-
   print_field();
+
   mvprintw(8, 32, "%d", stats->score);
   mvprintw(10, 31, "%d", stats->high_score);
   mvprintw(12, 32, "%d", stats->level);
@@ -38,6 +39,30 @@ void print_game() {
   for (int i = 1; i <= 20; i++) {
     mvaddch(21, i, ACS_HLINE);
     mvaddch(0, i, ACS_HLINE);
+  }
+}
+
+/**
+ * @ingroup graphics_funcs
+ * @brief Info block clearing
+ */
+void clear_info() {
+  for (int i = 11; i < 25; i++) {
+    for (int j = 1; j < 21; j++) {
+      mvprintw(j, i * 2 + 1, "  ");
+    }
+  }
+}
+
+/**
+ * @ingroup graphics_funcs
+ * @brief Field block clearing
+ */
+void clear_field() {
+  for (int i = 0; i < 10; i++) {
+    for (int j = 1; j < 21; j++) {
+      mvprintw(j, i * 2 + 1, "  ");
+    }
   }
 }
 
@@ -62,8 +87,6 @@ void print_field() {
  */
 void print_tetromino() {
   GameInfo_t *stats = updateCurrentState();
-  // mvprintw(10, 10, "%d", stats->cur_x);
-  // mvprintw(stats->cur_y, stats->cur_x * 2 + 1, "[]");
   for (int i = 0; i < 4; i++) {
     for (int j = 0; j < 4; j++) {
       if (stats->current_tetromino.tet[i][j] == 1) {
@@ -79,13 +102,13 @@ void print_tetromino() {
  */
 void print_banner() {
   GameInfo_t *stats = updateCurrentState();
-  clear();
-  mvprintw(6, 16, "GAME OVER");
-  mvprintw(8, 16, "SCORE: %d", stats->score);
-  mvprintw(10, 15, "PRESS ENTER");
-  mvprintw(11, 15, "TO TRY AGAIN");
-  mvprintw(13, 16, "PRESS 'Q'");
-  mvprintw(14, 17, "TO QUIT");
+  clear_field();
+  mvprintw(6, 6, "GAME OVER");
+  mvprintw(8, 6, "SCORE: %d", stats->score);
+  mvprintw(10, 5, "PRESS ENTER");
+  mvprintw(11, 5, "TO TRY AGAIN");
+  mvprintw(13, 6, "PRESS 'Q'");
+  mvprintw(14, 7, "TO QUIT");
 }
 
 /**

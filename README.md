@@ -9,6 +9,10 @@ Tested on Linux and MacOS.
 
 Just run `make install` and game will be installed in `./brick_game/`
 
+### Screenshots
+
+
+
 ##
 
 This project is licensed under the terms of the MIT license.
