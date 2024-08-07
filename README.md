@@ -7,7 +7,7 @@ Tested on Linux and MacOS.
 
 `GCC` is requied for building and installation.
 
-Just run `make install` and game will be installed in `./brick_game/`
+Just run `make install` and game will be installed in `./BrickGame/`
 
 ### Screenshots
 
